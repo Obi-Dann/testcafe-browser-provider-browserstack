@@ -162,7 +162,7 @@ module.exports = {
                 var platformNameMatched    = info['os'].toLowerCase() === query.platform ||
                     `${info['os'].toLowerCase()} ${info['os_version'].toLowerCase()}` === query.platform;
 
-                var isAnyVersion  = query.version === 'any';
+                var isAnyVersion  = query.version === 'any' && (!info['browser_version'] || info['browser_version'].toLowerCase().indexOf('beta') === -1);
                 var isAnyPlatform = query.platform === 'any';
 
                 var desktopBrowserMatched = browserNameMatched &&
